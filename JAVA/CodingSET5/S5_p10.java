@@ -14,10 +14,10 @@ class S5_p10 {
             for(int i=0;i<5;i++){
                 sum+=arr[i];
              if(arr[i]<0){
-                 throw InvalidMarksException("Marks can't be smaller than 0 ");
+                 throw new InvalidMarksException("Marks can't be smaller than 0 ");
              }
              if(arr[i]>100){
-                 throw InvalidMarksException("Marks can't be grater than 100");
+                 throw new InvalidMarksException("Marks can't be grater than 100");
              }
             
          }
