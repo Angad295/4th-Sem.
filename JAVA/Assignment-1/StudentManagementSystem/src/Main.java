@@ -16,7 +16,8 @@ public class Main {
             System.out.println("2. View Students (Read)");
             System.out.println("3. Update Student (Update)");
             System.out.println("4. Delete Student (Delete)");
-            System.out.println("5. Exit");
+            System.out.println("5. Searching (Search Student)");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             
             choice = scanner.nextInt();
@@ -27,10 +28,11 @@ public class Main {
                 case 2: readStudents(); break;
                 case 3: updateStudent(); break;
                 case 4: deleteStudent(); break;
-                case 5: System.out.println("Exiting application. Goodbye!"); break;
+                case 5: searchStudent(); break;
+                case 6: System.out.println("Exiting application. Goodbye!"); break;
                 default: System.out.println("Invalid choice! Please try again.");
             }
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
     // --- 1. CREATE ---
@@ -106,4 +108,20 @@ public class Main {
         }
         System.out.println("Student with ID " + id + " not found.");
     }
+    // --- 5.SEARCHING ---
+    private static void searchStudent() {
+    System.out.print("Enter Student Name to search: ");
+    String query = scanner.nextLine();
+    boolean found = false;
+
+    for (Student s : studentList) {
+        if (s.getName().toLowerCase().contains(query.toLowerCase())) {
+            System.out.println(s);
+            found = true;
+        }
+    }
+    if (!found) {
+        System.out.println("No student found matching that name.");
+    }
+}
 }
